@@ -1,0 +1,15 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.grid-item {
+  width: 100%;
+}
