@@ -1,5 +1,5 @@
 #React Weather 
-Weather web app in React. Data are being fetched from [link](weatherapi.com)
+Weather web app in React. Data are being fetched from [Weatherapi](weatherapi.com)
 
 ## Techstack
 - React.js, HTML, CSS
