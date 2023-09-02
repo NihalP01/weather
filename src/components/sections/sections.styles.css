@@ -6,7 +6,6 @@
 }
 
 .searchbar {
-  margin-top: 1rem;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -21,8 +20,32 @@
   border-radius: 0.9rem;
 }
 
-.current-waeather-box {
+.current-weather-box {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-time-box {
+  margin-top: 2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-box {
+  margin-top: 1rem;
+}
+
+.location-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.date-time-text{
+  font-size: 1.3rem;
 }
 
 .current-temp-value {
@@ -34,4 +57,26 @@
 .current-temp-text {
   margin-top: 0.2rem;
   font-size: 1.5rem;
+}
+
+.weather-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .weather-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .weather-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.weather-grid-item {
 }
