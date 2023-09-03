@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import './sections.styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWeatherData } from '../../redux/thunks/weatherThunk';
 import { Utils } from '../../utils/Utils';
+import Loader from '../loader/Loader';
 
 const CurrentWeatherSection = () => {
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const { weatherData, isLoading, error } = useSelector(
     (state) => state.weather
   );
@@ -17,7 +24,9 @@ const CurrentWeatherSection = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(getWeatherData(city));
+    if (city.trim() !== '') {
+      dispatch(getWeatherData(city));
+    }
   };
 
   const getCurrentTime = () => {
@@ -34,6 +43,7 @@ const CurrentWeatherSection = () => {
           placeholder="City name"
           className="search-input"
           onChange={handleChange}
+          ref={inputRef}
         />
         <AiOutlineSearch
           onClick={() => handleSubmit()}
@@ -41,6 +51,7 @@ const CurrentWeatherSection = () => {
             marginLeft: '-2rem',
             fontSize: '1.9rem',
             cursor: 'pointer',
+            color: 'black',
           }}
         />
       </div>
@@ -51,7 +62,7 @@ const CurrentWeatherSection = () => {
               src={weatherData?.current?.condition?.icon}
               width={'100px'}
               height={'100px'}
-              alt="weather icon"
+              alt="weather condition"
             />
             <p className="current-temp-value">
               {weatherData?.current?.temp_c}°C
@@ -76,7 +87,19 @@ const CurrentWeatherSection = () => {
           </div>
         </div>
       ) : (
-        <p className="initial-text">Search any city to continue</p>
+        <div>
+          {isLoading ? (
+            <div style={{ marginTop: '2rem' }}>
+              <Loader />
+            </div>
+          ) : weatherData?.error ? (
+            <p className="initial-text">{weatherData?.error?.message}</p>
+          ) : error ? (
+            <p className="initial-text">{error}</p>
+          ) : (
+            <p className="initial-text">Search any city to continue</p>
+          )}
+        </div>
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import { Cards } from '../cards';
 import { useSelector } from 'react-redux';
 
 const CurrentWeatherDetailsSection = () => {
-  const { weatherData, isLoading, error } = useSelector(
+  const { weatherData } = useSelector(
     (state) => state.weather
   );
 
@@ -73,10 +73,16 @@ const CurrentWeatherDetailsSection = () => {
           <Cards.WeatherCard title="Temparature History">
             <div>
               <p className="child-body">
-                Max: {weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c}
+                Max:{' '}
+                {weatherData?.forecast
+                  ? weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c
+                  : '0'}
               </p>
               <p className="child-body">
-                Min: {weatherData?.forecast?.forecastday[0]?.day?.mintemp_c}
+                Min:{' '}
+                {weatherData?.forecast
+                  ? weatherData?.forecast?.forecastday[0]?.day?.mintemp_c
+                  : '0'}
               </p>
             </div>
           </Cards.WeatherCard>

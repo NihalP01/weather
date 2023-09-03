@@ -63,11 +63,16 @@
   font-size: 1.5rem;
 }
 
+.heading-text{
+  color: white;
+  font-size: 2rem;
+}
+
 .weather-grid-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  gap: 0.3rem;
+  gap: 1rem;
 }
 
 @media (min-width: 600px) {
@@ -87,7 +92,7 @@
 .weather-grid-item {
 }
 
-.initial-text{
+.initial-text {
   font-size: 1.5rem;
   margin-top: 2rem;
 }
