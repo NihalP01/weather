@@ -1,22 +1,36 @@
-let date = new Date();
-let hours = date.getHours();
-let minutes = date.getMinutes();
-let ampm = hours >= 12 ? 'PM' : 'AM';
-hours = hours % 12;
-hours = hours ? hours : 12; // the hour '0' should be '12'
-minutes = minutes < 10 ? '0' + minutes : minutes;
-let strTime = hours + ':' + minutes + ' ' + ampm;
+// Input date string
 
-let days = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
-let dayName = days[date.getDay()];
+export const formattedDayTime = (inputDayTime) => {
+  // Parse the input date string into a JavaScript Date object
+  const parsedDate = new Date(inputDayTime);
 
-export const time = strTime;
-export const day = dayName;
+  // Define an array of weekday names
+  const weekdays = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+  const dayOfWeek = parsedDate.getDay();
+
+  // Get the hour and minute from the parsed date
+  const hours = parsedDate.getHours();
+  const minutes = parsedDate.getMinutes() + 1;
+
+  // Convert hours to 12-hour format and determine AM/PM
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const formattedHours = hours % 12 || 12; // Convert 0 to 12 for 12-hour format
+
+  // Create the final formatted date string
+  return `${weekdays[dayOfWeek]}, ${formattedHours}:${String(minutes).padStart(
+    2,
+    '0'
+  )} ${period}`;
+
+  // Output the result
+};

@@ -29,13 +29,6 @@ const CurrentWeatherSection = () => {
     }
   };
 
-  const getCurrentTime = () => {
-    const date = new Date(weatherData?.location?.localtime_epoch * 1000);
-    return `${String(date.getDate()).padStart(2, 0)}-${String(
-      date.getMonth() + 1
-    ).padStart(2, 0)}-${date.getFullYear()}`;
-  };
-
   return (
     <div className="main-container">
       <div className="searchbar">
@@ -72,9 +65,17 @@ const CurrentWeatherSection = () => {
             </p>
           </div>
           <div className="date-time-box">
-            <p className="date-time-text">{getCurrentTime()}</p>
+            <p style={{ fontSize: '1.1rem' }}>---- Local time ----</p>
             <p className="date-time-text">
-              {Utils.day}, {Utils.time}
+              {' '}
+              {Utils.formattedDate(
+                weatherData?.location?.localtime_epoch * 1000
+              )}
+            </p>
+            <p className="date-time-text">
+              {Utils.formattedDayTime(
+                weatherData?.location?.localtime_epoch * 1000
+              )}
             </p>
             <p className="date-time-text">
               {weatherData?.current?.is_day ? 'Day' : 'Night'}

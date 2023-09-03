@@ -3,9 +3,7 @@ import { Cards } from '../cards';
 import { useSelector } from 'react-redux';
 
 const CurrentWeatherDetailsSection = () => {
-  const { weatherData } = useSelector(
-    (state) => state.weather
-  );
+  const { weatherData } = useSelector((state) => state.weather);
 
   return (
     <div>
@@ -41,7 +39,7 @@ const CurrentWeatherDetailsSection = () => {
             title="Feels like"
             bodyText={
               weatherData?.current
-                ? `${weatherData?.current?.feelslike_c} °C`
+                ? `${weatherData?.current?.feelslike_c}°C`
                 : '0 °C'
             }
           />
@@ -75,14 +73,14 @@ const CurrentWeatherDetailsSection = () => {
               <p className="child-body">
                 Max:{' '}
                 {weatherData?.forecast
-                  ? weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c
-                  : '0'}
+                  ? `${weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c}°C`
+                  : '0°C'}
               </p>
               <p className="child-body">
                 Min:{' '}
                 {weatherData?.forecast
-                  ? weatherData?.forecast?.forecastday[0]?.day?.mintemp_c
-                  : '0'}
+                  ? `${weatherData?.forecast?.forecastday[0]?.day?.mintemp_c}°C`
+                  : '0°C'}
               </p>
             </div>
           </Cards.WeatherCard>

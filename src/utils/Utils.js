@@ -1,6 +1,7 @@
-import { day, time } from './currentTimeDay';
+import { formattedDate } from './currentDate';
+import { formattedDayTime } from './currentTimeDay';
 
 export const Utils = {
-  time,
-  day,
+  formattedDayTime,
+  formattedDate,
 };
