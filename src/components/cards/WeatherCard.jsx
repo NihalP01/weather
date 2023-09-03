@@ -1,12 +1,13 @@
 import React from 'react';
 import './cards.styles.css';
 
-const WeatherCard = () => {
+const WeatherCard = (props) => {
+  const { title, bodyText, otherText } = props;
   return (
     <div className="card-container">
-      <p className="card-title">Humidity</p>
+      <p className="card-title">{title}</p>
       <div>
-        <p className="card-body">Text</p>
+        <p className="card-body">{bodyText}</p>
         <p
           style={{
             marginTop: '0.5rem',
@@ -14,7 +15,7 @@ const WeatherCard = () => {
             color: 'white',
           }}
         >
-          Addtional text
+          {otherText}
         </p>
       </div>
     </div>
