@@ -38,8 +38,8 @@ const CurrentWeatherSection = () => {
         <AiOutlineSearch
           onClick={() => handleSubmit()}
           style={{
-            marginLeft: '-1.7rem',
-            fontSize: '1.5rem',
+            marginLeft: '-2rem',
+            fontSize: '1.9rem',
             cursor: 'pointer',
           }}
         />

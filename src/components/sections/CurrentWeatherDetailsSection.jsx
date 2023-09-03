@@ -72,8 +72,12 @@ const CurrentWeatherDetailsSection = () => {
         <div className="weather-grid-item">
           <Cards.WeatherCard title="Temparature History">
             <div>
-              <p className="child-body">High: 36°C</p>
-              <p className="child-body">Low: 30°C</p>
+              <p className="child-body">
+                Max: {weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c}
+              </p>
+              <p className="child-body">
+                Min: {weatherData?.forecast?.forecastday[0]?.day?.mintemp_c}
+              </p>
             </div>
           </Cards.WeatherCard>
         </div>
@@ -110,7 +114,7 @@ const CurrentWeatherDetailsSection = () => {
           <a href="https://www.weatherapi.com/">Weatherapi</a>
         </p>
         <p>
-          Made with ❤ by <a href="github.com/nihalp01">Nihalp01</a>
+          Made with ❤ by <a href="https://github.com/nihalp01">Nihalp01</a>
         </p>
       </div>
     </div>
