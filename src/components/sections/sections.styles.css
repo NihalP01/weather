@@ -37,6 +37,8 @@
 
 .location-box {
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .location-text {
@@ -46,6 +48,7 @@
 
 .date-time-text {
   font-size: 1.3rem;
+  margin-top: 0.8rem;
 }
 
 .current-temp-value {
@@ -81,4 +84,9 @@
 }
 
 .weather-grid-item {
+}
+
+.initial-text{
+  font-size: 1.5rem;
+  margin-top: 2rem;
 }

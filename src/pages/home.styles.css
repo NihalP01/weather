@@ -12,7 +12,13 @@
 }
 
 .grid-item {
-  width: 100%;
+  padding: 5rem 1rem 1rem 1rem;
+}
+
+@media screen and (max-width: 600) {
+  .grid-item {
+    padding: 4rem 1rem 0.5rem 1rem;
+  }
 }
 
 .footer-note {
@@ -23,4 +29,22 @@
   margin-bottom: 1rem;
   padding: 0 2rem;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-note {
+    position: relative;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-note {
+    position: relative;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
 }

@@ -3,6 +3,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import './sections.styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWeatherData } from '../../redux/thunks/weatherThunk';
+import { Utils } from '../../utils/Utils';
 
 const CurrentWeatherSection = () => {
   const { weatherData, isLoading, error } = useSelector(
@@ -20,9 +21,7 @@ const CurrentWeatherSection = () => {
   };
 
   const getCurrentTime = () => {
-    const date = new Date(
-      weatherData?.location?.localtime_epoch * 1000
-    );
+    const date = new Date(weatherData?.location?.localtime_epoch * 1000);
     return `${String(date.getDate()).padStart(2, 0)}-${String(
       date.getMonth() + 1
     ).padStart(2, 0)}-${date.getFullYear()}`;
@@ -45,31 +44,40 @@ const CurrentWeatherSection = () => {
           }}
         />
       </div>
-      <div className="current-weather-box">
-        <img
-          src={weatherData?.current?.condition?.icon}
-          width={'100px'}
-          height={'auto'}
-          alt="weather icon"
-        />
-        <p className="current-temp-value">
-          {weatherData?.current?.temp_c}
-        </p>
-        <p className="current-temp-text">
-          {weatherData?.current?.condition?.text}
-        </p>
-      </div>
-      <div className="date-time-box">
-        <p className='date-time-text'>{getCurrentTime()}</p>
-        <p className='date-time-text'>Fridday, 12:43</p>
-        <p className='date-time-text'>{weatherData?.current?.is_day ? 'Day' : 'Night'}</p>
-      </div>
-      <div className="location-box">
-        <p className='location-text'>
-          {weatherData?.location?.name},{' '}
-          {weatherData?.location?.region}
-        </p>
-      </div>
+      {weatherData?.current !== undefined ? (
+        <div>
+          <div className="current-weather-box">
+            <img
+              src={weatherData?.current?.condition?.icon}
+              width={'100px'}
+              height={'100px'}
+              alt="weather icon"
+            />
+            <p className="current-temp-value">
+              {weatherData?.current?.temp_c}°C
+            </p>
+            <p className="current-temp-text">
+              {weatherData?.current?.condition?.text}
+            </p>
+          </div>
+          <div className="date-time-box">
+            <p className="date-time-text">{getCurrentTime()}</p>
+            <p className="date-time-text">
+              {Utils.day}, {Utils.time}
+            </p>
+            <p className="date-time-text">
+              {weatherData?.current?.is_day ? 'Day' : 'Night'}
+            </p>
+          </div>
+          <div className="location-box">
+            <p className="location-text">
+              {weatherData?.location?.name}, {weatherData?.location?.region}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <p className="initial-text">Search any city to continue</p>
+      )}
     </div>
   );
 };
