@@ -1,6 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 30% 70%;
+  height: 100vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -12,4 +13,14 @@
 
 .grid-item {
   width: 100%;
+}
+
+.footer-note {
+  width: -webkit-fill-available;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+  justify-content: space-between;
 }

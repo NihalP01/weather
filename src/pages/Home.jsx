@@ -8,7 +8,7 @@ const Home = () => {
       <div className="grid-item">
         <Sections.CurrentWeatherSection />
       </div>
-      <div className="grid-item">
+      <div className="grid-item" style={{ backgroundColor: '#b8b9ff38' }}>
         <Sections.CurrentWeatherDetailsSection />
       </div>
     </div>

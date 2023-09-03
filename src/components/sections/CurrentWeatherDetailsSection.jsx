@@ -37,6 +37,12 @@ const CurrentWeatherDetailsSection = () => {
           <Cards.WeatherCard />
         </div>
       </div>
+      <div className="footer-note">
+        <p>All data are fetched from WeatherApi</p>
+        <p>
+          Made with ❤ by <a href="github.com/nihalp01">Nihalp01</a>
+        </p>
+      </div>
     </div>
   );
 };
