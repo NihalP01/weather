@@ -16,8 +16,9 @@
 
 .search-input {
   width: 100%;
-  padding: 0.4rem;
-  border-radius: 0.9rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
 }
 
 .current-weather-box {
@@ -37,6 +38,8 @@
 
 .location-box {
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .location-text {
@@ -46,6 +49,7 @@
 
 .date-time-text {
   font-size: 1.3rem;
+  margin-top: 0.8rem;
 }
 
 .current-temp-value {
@@ -59,11 +63,16 @@
   font-size: 1.5rem;
 }
 
+.heading-text{
+  color: white;
+  font-size: 2rem;
+}
+
 .weather-grid-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  gap: 0.3rem;
+  gap: 1rem;
 }
 
 @media (min-width: 600px) {
@@ -81,4 +90,9 @@
 }
 
 .weather-grid-item {
+}
+
+.initial-text {
+  font-size: 1.5rem;
+  margin-top: 2rem;
 }

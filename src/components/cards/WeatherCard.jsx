@@ -2,7 +2,7 @@ import React from 'react';
 import './cards.styles.css';
 
 const WeatherCard = (props) => {
-  const { title, bodyText, otherText } = props;
+  const { title, bodyText, otherText, children } = props;
   return (
     <div className="card-container">
       <p className="card-title">{title}</p>
@@ -17,6 +17,7 @@ const WeatherCard = (props) => {
         >
           {otherText}
         </p>
+        {children}
       </div>
     </div>
   );
