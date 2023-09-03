@@ -13,7 +13,7 @@ export const getWeatherData = createAsyncThunk(
     try {
       dispatch(fetchWeatherDataStart());
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=2&aqi=no&alerts=no`
+        `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=1&aqi=no&alerts=no`
       );
       const data = await response.json();
       dispatch(fetchWeatherDataSuccess(data));
