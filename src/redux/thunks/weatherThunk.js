@@ -5,8 +5,7 @@ import {
   fetchWeatherDataSuccess,
 } from '../slices/weatherSlice';
 
-// const API_KEY = process.env.REACT_APP_API_KEY;
-const API_KEY = '9d70cb849ca24960b99154300230407';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const getWeatherData = createAsyncThunk(
   'api/getWeather',
