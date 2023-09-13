@@ -68,7 +68,7 @@ const CurrentWeatherDetailsSection = () => {
         </div>
         {/* temp-hist */}
         <div className="weather-grid-item">
-          <Cards.WeatherCard title="Temparature History">
+          <Cards.WeatherCard title="Temperature History">
             <div>
               <p className="child-body">
                 Max:{' '}
